@@ -1,0 +1,8 @@
+#!/bin/bash
+
+WLANGW=$(netstat -nr | grep '^[0-9\.]*\s\s*192.*wlan0' | cut -d ' ' -f3)
+echo "Located wlan gateway: $WLANGW"
+sudo route add default gw $WLANGW wlan0
+netstat -nr | grep '^0\.0\.0\.0.*0\.0\.0\.0.*tun0' | cut -d ' ' -f10 | xargs -I {} sudo route del default gw {} tun0
+echo "Default routes"
+netstat -nr | grep '^0\.0\.0\.0'

@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+"""
+Simple epoch converter
+"""
+
+from __future__ import print_function
+
+import sys
+import time
+
+tformat = "%Y-%m-%d %H:%M:%S"
+
+def convert(epoch):
+    return "%s\t%s" % (time.strftime(tformat, time.gmtime(epoch)), epoch)
+
+
+def isstdin():
+    for epoch in sys.stdin:
+        print(convert(float(epoch)))
+
+def main():
+    if sys.stdin.isatty():
+        try:
+            # Pull in the timestamp
+            epoch = float(sys.argv[1])
+        except IndexError:
+            epoch = time.time()
+
+        print(convert(epoch))
+    else:
+        isstdin()
+
+if __name__ == "__main__":
+    main()

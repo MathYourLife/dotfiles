@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xrandr | grep ' connected' | cut -d ' ' -f 1 | awk '{print "xrandr --output "$0" --auto"}' | bash

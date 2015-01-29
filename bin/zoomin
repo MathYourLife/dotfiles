@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SIZE=`grep 'FontName' ~/.config/xfce4/terminal/terminalrc | cut -d' ' -f 5`
+NEWSIZE=$((SIZE + 1))
+REGEXPR='s/FontName=Source Code Pro Medium.*/FontName=Source Code Pro Medium '$NEWSIZE'/g'
+sed -i "$REGEXPR" ~/.config/xfce4/terminal/terminalrc

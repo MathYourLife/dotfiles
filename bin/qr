@@ -1,0 +1,20 @@
+#!/home/dcouture/.virtualenvs/qr/bin/python
+
+import os
+import getpass
+from subprocess import Popen
+
+import qrcode
+
+qr_str = getpass.getpass("QR: ")
+
+img = qrcode.make(qr_str)
+
+qr_file = '/home/dcouture/tmp/tmp.png'
+img.save(qr_file)
+
+p1 = Popen(['ristretto', qr_file])
+
+(out, err) = p1.communicate()
+
+os.remove(qr_file)
