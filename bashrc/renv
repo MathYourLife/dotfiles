@@ -1,0 +1,3 @@
+
+alias R="R -q"
+export R_LIBS="~/rstats/packages"

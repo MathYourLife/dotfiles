@@ -128,24 +128,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-# python auto complete
-if [ -f ~/.pythonenv ]
-then
-  source ~/.pythonenv
-fi
-
-# rstats environment
-if [ -f ~/.renv ]
-then
-  source ~/.renv
-fi
-
-# For chef/vagrant
-if [ -f ~/.chefenv ]
-then
-  source ~/.chefenv
-fi
-
 for f in $(ls ~/.bashrc.conf/*);
 do
   source $f
