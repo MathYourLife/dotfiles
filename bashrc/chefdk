@@ -1,0 +1,2 @@
+eval "$(chef shell-init bash)"
+export PATH="/opt/chefdk/embedded/bin:${HOME}/.chefdk/gem/ruby/2.1.0/bin:$PATH"
