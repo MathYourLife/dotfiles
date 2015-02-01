@@ -1,0 +1,6 @@
+
+Host github.corp.dyndns.com
+    IdentityFile ~/.ssh/dyn_github
+
+Host dynback.net
+    IdentityFile ~/.ssh/dyn_emm_prod

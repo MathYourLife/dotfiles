@@ -1,0 +1,6 @@
+install.packages("ggplot2", lib="~/rstats/packages/")
+install.packages("reshape", lib="~/rstats/packages/")
+install.packages("MCMCpack", lib="~/rstats/packages/")
+install.packages("VGAM", lib="~/rstats/packages/")
+install.packages("rjson", lib="~/rstats/packages/")
+install.packages("RCurl", lib="~/rstats/packages/")

@@ -1,0 +1,2 @@
+
+export R_LIBS="~/rstats/packages"

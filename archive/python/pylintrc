@@ -1,0 +1,15 @@
+[MESSAGES CONTROL]
+# Disable the message(s) with the given id(s).
+# http://pylint-messages.wikidot.com/all-codes
+#
+# R0913: Too many arguments (%s/%s)
+#
+disable = R0913
+
+[TYPECHECK]
+#generated-members = REQUEST,acl_users,aq_parent,objects,DoesNotExist,_meta,status_code,content,context
+
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=100

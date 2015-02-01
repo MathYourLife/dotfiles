@@ -1,0 +1,5 @@
+options("scipen"=100000)
+options("width"=160)
+#options("pdfviewer"="kpdf")
+#options(prompt="R> ", digits=4, show.signif.stars=FALSE)
+options("repos"="http://cran.us.r-project.org")    ## US mirror

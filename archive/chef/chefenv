@@ -1,0 +1,34 @@
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$PATH:${DYN_CHEF_DATA}/bin
+eval "$(rbenv init -)"
+
+export DYN_CHEF_PROD="dcouture"
+export DYN_CHEF_DATA="${HOME}/git/dyn/cookbooks/dyn_chef_data"
+export SSL_CERT_FILE="${DYN_CHEF_DATA}/config/cacert.pem"
+export CHEF_CB_DIR="${HOME}/git/dyn/cookbooks/"
+export DRIVER_PLUGIN="vagrant"
+export PROVISIONER="chef_zero"
+export VAGRANT_DEFAULT_PROVIDER="virtualbox"
+
+alias bi="bundle install"
+alias bebi="bundle exec berks install"
+alias best="bundle exec strainer test"
+alias bekl="bundle exec kitchen list"
+alias bekc="bundle exec kitchen converge"
+alias bekv="bundle exec kitchen verify"
+alias bekg="bundle exec kitchen login"
+alias bekd="bundle exec kitchen destroy"
+
+# delete cookbook and re-upload it
+function cookbookreload {
+    cb=$1
+    printf "\e[35mDeleting cookbook $cb\e[00m\n"
+    knife cookbook delete $cb -y 2>/dev/null
+    bundle exec berks shelf uninstall $cb 2>/dev/null
+    printf "\e[35mInstalling cookbooks\e[00m\n"
+    bundle exec berks install
+    printf "\e[35mUploading cookbook $cb\e[00m\n"
+    bundle exec berks upload $cb
+}
+
